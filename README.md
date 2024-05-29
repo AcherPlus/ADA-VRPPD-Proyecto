@@ -7,3 +7,4 @@ Integrantes:
 - Enmanuel Jose Obando Salinas
 - Richard Maycol Torres Rivera
 - Miguel Angel Vera Alva
+- Bruno Pumapillo Sarmiento
