@@ -1,0 +1,27 @@
+section{
+    background-color: black;
+    height: 100vh;
+}
+
+h1{
+    color: #FEE600;
+    font-size: 70px;
+    font-weight: 700;
+}
+
+.card{
+    background-color: #FEE600;
+}
+
+.card img{
+    height: 200px;
+    width:170px;
+    filter: drop-shadow(5px 5px 5px #000000);
+}
+
+button{
+    margin-top: 50px;
+    font-weight: 700;
+    width: 60%;
+    font-size: 20px;
+}
