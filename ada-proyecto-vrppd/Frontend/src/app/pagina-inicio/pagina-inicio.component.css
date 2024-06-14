@@ -2,7 +2,24 @@ a{
     margin-left: 20px;
 }
 
+nav img{
+    height: 25px;
+}
+
 section{
     background-color: #FEE600;
+    height: 100vh;
+}
+
+h1{
+    font-size: 70px;
+    font-weight: 700;
+}
+
+h1,h3{
+    margin: 0px 100px;
+}
+
+section img{
     height: 100vh;
 }
