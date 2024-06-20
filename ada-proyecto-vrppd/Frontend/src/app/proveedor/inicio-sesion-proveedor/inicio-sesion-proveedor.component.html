@@ -1,0 +1,42 @@
+<body>
+    <form formGroup="loginForm" ngSubmit="onSubmit()" class="my-form">
+      <div class="login-welcome-row">
+        <h1>Iniciar Sesión</h1>
+        <h1>Proveedor</h1>
+      </div>
+      <div class="input__wrapper">
+        <label for="dni" class="input__label">Documento de identidad (DNI)</label>
+        <input
+          type="text"
+          id="dni"
+          formControlName="dni"
+          class="input__field"
+          placeholder="Documento de identidad (DNI)"
+          required
+          autocomplete="off"
+          pattern="\d+"
+          title="Ingrese solo números"
+        />
+        <!-- svg dni -->
+      </div>
+      <div class="input__wrapper">
+        <label for="password" class="input__label">Contraseña</label>
+        <input
+          id="password"
+          type="password"
+          formControlName="password"
+          class="input__field"
+          placeholder="Contraseña"
+          autocomplete="off"
+        />
+        <!-- svg password -->
+      </div>
+      <button type="submit" class="my-form__button">Ingresar</button>
+      <div class="my-form__actions">
+        <div class="my-form__row">
+          <span>¿Eres nuevo?</span>
+          <a href="#" title="Create Account">Crea Cuenta</a>
+        </div>
+      </div>
+    </form>
+  </body>
