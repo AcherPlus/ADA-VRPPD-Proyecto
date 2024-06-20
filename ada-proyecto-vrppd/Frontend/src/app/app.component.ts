@@ -5,6 +5,8 @@ import { InicioSesionComponent } from './empresario/inicio-sesion/inicio-sesion.
 import { PaginaInicioComponent } from './pagina-inicio/pagina-inicio.component';
 import { InicioSesionGeneralComponent } from './inicio-sesion-general/inicio-sesion-general.component';
 import { InicioSesionProveedorComponent } from './proveedor/inicio-sesion-proveedor/inicio-sesion-proveedor.component';
+import { CrearCuentaProveedorComponent } from './proveedor/crear-cuenta-proveedor/crear-cuenta-proveedor.component';
+import {BienvenidoProveedorComponent} from './proveedor/bienvenido-proveedor/bienvenido-proveedor.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -24,6 +26,8 @@ import { InicioSesionProveedorComponent } from './proveedor/inicio-sesion-provee
 
     //Modulos de proveedor
     InicioSesionProveedorComponent,
+    CrearCuentaProveedorComponent,
+    BienvenidoProveedorComponent
   ],
 })
 export class AppComponent {

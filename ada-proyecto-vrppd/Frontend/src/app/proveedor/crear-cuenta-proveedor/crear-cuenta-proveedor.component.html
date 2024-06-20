@@ -1,1 +1,57 @@
-<p>crear-cuenta-proveedor works!</p>
+<body>
+    <form formGroup="loginForm" ngSubmit="onSubmit()" class="my-form">
+      <div class="login-welcome-row">
+        <h1>Registrarse</h1>
+        <h1>Proveedor</h1>
+      </div>
+      <div class="input__wrapper">
+        <label for="dni" class="input__label">Nombre Completo</label>
+        <input
+          type="text"
+          id="nombre"
+          formControlName="nombre"
+          class="input__field"
+          placeholder="Nombre Completo"
+          required
+          autocomplete="off"
+          pattern="\d+"
+          title="Ingrese solo texto"
+        />
+        <!-- svg dni -->
+      </div>
+      <div class="input__wrapper">
+        <label for="dni" class="input__label">Documento de identidad (DNI)</label>
+        <input
+          type="text"
+          id="dni"
+          formControlName="dni"
+          class="input__field"
+          placeholder="Documento de identidad (DNI)"
+          required
+          autocomplete="off"
+          pattern="\d+"
+          title="Ingrese solo números"
+        />
+        <!-- svg dni -->
+      </div>
+      <div class="input__wrapper">
+        <label for="password" class="input__label">Contraseña</label>
+        <input
+          id="password"
+          type="password"
+          formControlName="password"
+          class="input__field"
+          placeholder="Contraseña"
+          autocomplete="off"
+        />
+        <!-- svg password -->
+      </div>
+      <button type="submit" class="my-form__button">Registrarse</button>
+      <div class="my-form__actions">
+        <div class="my-form__row">
+          <span>¿Tienes cuenta?</span>
+          <a href="#" title="Ingresa">Crea Cuenta</a>
+        </div>
+      </div>
+    </form>
+  </body>
