@@ -1,1 +1,69 @@
 <app-navbar-bip/>
+<section class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12" style="width: 60%;">
+                <h1 class="text-center">Ingresar datos de envío</h1>
+                <form class="row g-3 mt-4">
+                    
+                    <label for="inputEmail4"><b>¿Quién envía?</b></label>
+                    <div class="col-md-5">
+                      <input type="text" class="form-control" placeholder="Documento de Identidad (DNI)">
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" placeholder="Nombre de Usuario">
+                    </div>
+                    
+                    <label for="inputEmail4"><b>Seleccione origen de envío</b></label>
+                    <div class="col-12">
+                      <input type="text" class="form-control" id="inputAddress" placeholder="Provincia-Departamento-Distrito">
+                    </div>
+                    
+                    <label for="inputEmail4"><b>¿Qué envía?</b></label>
+                    <div class="col-3">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Categoría</option>
+                            <option value="1">Gaseosas</option>
+                            <option value="2">Cervezas</option>
+                            <option value="3">Licores</option>
+                            <option value="4">Energéticas</option>
+                            <option value="5">Jugos</option>
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" class="form-control" id="inputAddress2" placeholder="Marca">
+                    </div>
+                    <div class="col-3">
+                        <input type="number" class="form-control" id="inputAddress2" placeholder="Cantidad" min="1">
+                    </div>
+                    <div class="col-3">
+                        <input type="number" class="form-control" id="inputAddress2" placeholder="Peso (kg)" min="1">
+                    </div>
+                    
+                    <label for="inputEmail4"><b>Selecciona envío de destino</b></label>
+                    <div class="col-md-4">
+                      <input type="text" class="form-control" id="inputCity" placeholder="Recojo en tienda" disabled>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="inputCity" placeholder="Provincia-Departamento-Distrito">
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" id="inputCity" placeholder="Dirección de Entrega">
+                    </div>
+                    
+                    <label for="inputEmail4"><b>¿Quién recibe?</b></label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" placeholder="Documento de Identidad (DNI)">
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" placeholder="Nombre de Usuario">
+                    </div>
+
+                    <div class="col-12 d-flex justify-content-center align-items-center">
+                      <button type="submit" class="btn btn-warning mt-4">Continuar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

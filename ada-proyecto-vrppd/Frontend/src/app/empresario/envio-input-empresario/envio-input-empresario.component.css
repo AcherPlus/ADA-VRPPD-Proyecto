@@ -1,0 +1,8 @@
+button{
+    background-color: #FEE600;
+    font-weight: 700;
+}
+
+input, select{
+    background-color: rgb(233, 232, 232);
+}
