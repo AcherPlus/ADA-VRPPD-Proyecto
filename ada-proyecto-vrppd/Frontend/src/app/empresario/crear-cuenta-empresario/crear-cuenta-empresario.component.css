@@ -1,0 +1,41 @@
+section{
+    background-color: black;
+    height: 100vh;
+}
+
+h2{
+    font-size: 25px;
+}
+
+.card{
+    background-color: #FEE600;
+}
+
+form{
+    width: 80%;
+}
+
+label, span{
+    font-size: 15px;
+}
+
+button{
+    margin-top: 10px;
+    font-weight: 700;
+    width: 40%;
+    height: 40px;
+    font-size: 15px;
+}
+
+span{
+    margin: 20px;
+}
+
+span a{
+    color: black;
+    text-decoration: none;
+}
+
+span a:hover{
+    color: #555555;
+}
