@@ -8,6 +8,10 @@ import { CrearCuentaProveedorComponent } from './proveedor/crear-cuenta-proveedo
 import {BienvenidoProveedorComponent} from './proveedor/bienvenido-proveedor/bienvenido-proveedor.component';
 import { InicioSesionEmpresarioComponent } from "./empresario/inicio-sesion-empresario/inicio-sesion-empresario.component";
 import { CrearCuentaEmpresarioComponent } from "./empresario/crear-cuenta-empresario/crear-cuenta-empresario.component";
+import { PrincipalEmpresarioComponent } from "./empresario/principal-empresario/principal-empresario.component";
+import { EnvioInputEmpresarioComponent } from "./empresario/envio-input-empresario/envio-input-empresario.component";
+import { EnvioResumenEmpresarioComponent } from "./empresario/envio-resumen-empresario/envio-resumen-empresario.component";
+import { NavbarBipComponent } from "./navbar-bip/navbar-bip.component";
 @Component({
     selector: 'app-root',
     standalone: true,
@@ -27,7 +31,11 @@ import { CrearCuentaEmpresarioComponent } from "./empresario/crear-cuenta-empres
         CrearCuentaProveedorComponent,
         BienvenidoProveedorComponent,
         InicioSesionEmpresarioComponent,
-        CrearCuentaEmpresarioComponent
+        CrearCuentaEmpresarioComponent,
+        PrincipalEmpresarioComponent,
+        EnvioInputEmpresarioComponent,
+        EnvioResumenEmpresarioComponent,
+        NavbarBipComponent
     ]
 })
 export class AppComponent {
