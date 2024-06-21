@@ -12,6 +12,7 @@ import { PrincipalEmpresarioComponent } from "./empresario/principal-empresario/
 import { EnvioInputEmpresarioComponent } from "./empresario/envio-input-empresario/envio-input-empresario.component";
 import { EnvioResumenEmpresarioComponent } from "./empresario/envio-resumen-empresario/envio-resumen-empresario.component";
 import { NavbarBipComponent } from "./navbar-bip/navbar-bip.component";
+import { VerSeguimientoEmpresarioComponent } from "./empresario/ver-seguimiento-empresario/ver-seguimiento-empresario.component";
 @Component({
     selector: 'app-root',
     standalone: true,
@@ -35,7 +36,8 @@ import { NavbarBipComponent } from "./navbar-bip/navbar-bip.component";
         PrincipalEmpresarioComponent,
         EnvioInputEmpresarioComponent,
         EnvioResumenEmpresarioComponent,
-        NavbarBipComponent
+        NavbarBipComponent,
+        VerSeguimientoEmpresarioComponent
     ]
 })
 export class AppComponent {

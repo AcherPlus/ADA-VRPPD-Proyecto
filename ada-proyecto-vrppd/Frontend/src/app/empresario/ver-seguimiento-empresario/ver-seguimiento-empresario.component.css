@@ -1,0 +1,9 @@
+.card{
+    background-color: #FEE600;
+    width: 50%;
+}
+
+.card th, td{
+    background-color: #FEE600;
+    max-width: 150px;
+}
