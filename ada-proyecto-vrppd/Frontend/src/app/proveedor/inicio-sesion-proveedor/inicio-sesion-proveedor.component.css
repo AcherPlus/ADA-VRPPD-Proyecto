@@ -100,7 +100,6 @@ body {
     width: 100%;
     border-radius: 0.5rem;
     -webkit-transition: all .3s ease;
-    -webkit-transition: all .3s ease;
 }
 
 .my-form__button:hover {
