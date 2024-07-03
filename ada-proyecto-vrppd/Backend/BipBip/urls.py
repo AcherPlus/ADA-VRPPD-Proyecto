@@ -16,9 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from BipBip.views import hello
 
 urlpatterns = [
-    path('', hello),
-    path('admin/', admin.site.urls)
+    path('admin/', admin.site.urls),
+    path('api/empresarios/', include('Empresarios.urls')),
+    path('api/locales/', include('Locales.urls')),
+    path('api/usuarios/', include('Usuarios.urls')),
+    path('api/productos/', include('Productos.urls')),
+    path('api/transportes/', include('Transportes.urls')),
+    path('api/almacenes/', include('Almacenes.urls')),
+    path('api/proveedores/', include('Proveedores.urls')),
 ]
