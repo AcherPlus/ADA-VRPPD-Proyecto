@@ -1,0 +1,25 @@
+.table-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.table th,
+.table td {
+    text-align: center;
+}
+
+.btn-center {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-yellow {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #000;
+}
+
+.btn-yellow:hover {
+    background-color: #e0a800;
+    border-color: #e0a800;
+}
