@@ -10,14 +10,14 @@ import { VerSeguimientoEmpresarioComponent } from './empresario/ver-seguimiento-
 import { InicioSesionProveedorComponent } from './proveedor/inicio-sesion-proveedor/inicio-sesion-proveedor.component';
 import { CrearCuentaProveedorComponent } from './proveedor/crear-cuenta-proveedor/crear-cuenta-proveedor.component';
 import { BienvenidoProveedorComponent } from './proveedor/bienvenido-proveedor/bienvenido-proveedor.component';
-import { AsignarTransporteProveedorComponent } from './proveedor/asignar-transporte-proveedor/asignar-transporte-proveedor.component';
 import { HistorialProveedorComponent } from './proveedor/historial-proveedor/historial-proveedor.component';
-import { AlmacenesProveedorComponent } from './proveedor/almacenes-proveedor/almacenes-proveedor.component';
-import { EditarAlmacenesProveedorComponent } from './proveedor/editar-almacenes-proveedor/editar-almacenes-proveedor.component';
-import { ProductosProveedorComponent } from './proveedor/productos-proveedor/productos-proveedor.component';
-import { EditarProductosProveedorComponent } from './proveedor/editar-productos-proveedor/editar-productos-proveedor.component';
 import { ListaTransporteProveedorComponent } from './proveedor/lista-transporte-proveedor/lista-transporte-proveedor.component';
+import { AlmacenesProveedorComponent } from './proveedor/almacenes-proveedor/almacenes-proveedor.component';
+import { AsignarTransporteProveedorComponent } from './proveedor/asignar-transporte-proveedor/asignar-transporte-proveedor.component';
+import { EditarAlmacenesProveedorComponent } from './proveedor/editar-almacenes-proveedor/editar-almacenes-proveedor.component';
 import { EditarListaTransporteProveedorComponent } from './proveedor/editar-lista-transporte-proveedor/editar-lista-transporte-proveedor.component';
+import { EditarProductosProveedorComponent } from './proveedor/editar-productos-proveedor/editar-productos-proveedor.component';
+import { ProductosProveedorComponent } from './proveedor/productos-proveedor/productos-proveedor.component';
 
 export const routes: Routes = [
     {path: 'pagina-inicio', component: PaginaInicioComponent},
@@ -28,5 +28,18 @@ export const routes: Routes = [
     {path: 'enviar-paquete', component: EnvioInputEmpresarioComponent},
     {path: 'resumen-envio', component: EnvioResumenEmpresarioComponent},
     {path: 'ver-seguimiento', component: VerSeguimientoEmpresarioComponent},
-    {path: '**', redirectTo: '/pagina-inicio', pathMatch: 'full'}
+        // Proveedor
+    { path: 'proveedor-sesion', component: InicioSesionProveedorComponent },
+    { path: 'bienvenido-proveedor', component: BienvenidoProveedorComponent },
+    { path: 'proveedor-crear-cuenta', component: CrearCuentaProveedorComponent },
+    { path: 'historial-proveedor', component: HistorialProveedorComponent },
+    { path: 'lista-transporte-proveedor', component: ListaTransporteProveedorComponent },
+    { path: 'almacenes-proveedor', component: AlmacenesProveedorComponent },
+    { path: 'asignar-transporte-proveedor', component: AsignarTransporteProveedorComponent },
+    { path: 'editar-almacenes-proveedor', component: EditarAlmacenesProveedorComponent },
+    { path: 'editar-lista-transporte-proveedor', component: EditarListaTransporteProveedorComponent },
+    { path: 'editar-productos-proveedor', component: EditarProductosProveedorComponent },
+    { path: 'productos-proveedor', component: ProductosProveedorComponent },
+
+    { path: '**', redirectTo: '/pagina-inicio', pathMatch: 'full' },
 ];

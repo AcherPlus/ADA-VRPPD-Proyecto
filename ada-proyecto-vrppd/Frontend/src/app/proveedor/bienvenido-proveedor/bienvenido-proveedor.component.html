@@ -1,3 +1,4 @@
+<app-navbar-bip />
 <div class="container">
     <!-- Título -->
     <div class="row my-4">
@@ -9,26 +10,23 @@
     <div class="row">
         <div class="col-2">
             <div class="row px-3">
-                <button type="button" class="btn btn-warning my-4 rounded-pill btn-block">
+                <button type="button" class="btn btn-warning my-4 rounded-pill btn-block" routerLink="/asignar-transporte-proveedor">
                     Asignar Transporte
                 </button>
             </div>
             <div class="row">
                 <div class="col grid gap-4 my-1 mx-1">
                     <div class="row mb-2">
-                        <button class="btn btn-light btn-block rounded-2 border border-2">Historial</button>
+                        <button class="btn btn-light btn-block rounded-2 border border-2" routerLink="/historial-proveedor">Historial</button>
                     </div>
                     <div class="row mb-2">
-                        <button class="btn btn-light btn-block rounded-2 border border-2">Almacenes</button>
+                        <button class="btn btn-light btn-block rounded-2 border border-2" routerLink="/almacenes-proveedor">Almacenes</button>
                     </div>
                     <div class="row mb-2">
-                        <button class="btn btn-light btn-block rounded-2 border border-2">Productos</button>
+                        <button class="btn btn-light btn-block rounded-2 border border-2" routerLink="/productos-proveedor">Productos</button>
                     </div>
                     <div class="row mb-2">
-                        <button class="btn btn-light btn-block rounded-2 border border-2">Locales</button>
-                    </div>
-                    <div class="row mb-2">
-                        <button class="btn btn-light btn-block rounded-2 border border-2">Transporte</button>
+                        <button class="btn btn-light btn-block rounded-2 border border-2" routerLink="/lista-transporte-proveedor">Transporte</button>
                     </div>
                 </div>
             </div>

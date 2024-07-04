@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-inicio-sesion-proveedor',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './inicio-sesion-proveedor.component.html',
   styleUrl: './inicio-sesion-proveedor.component.css'
 })
