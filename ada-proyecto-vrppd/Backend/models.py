@@ -9,13 +9,9 @@ from django.db import models
 
 
 class Almacen(models.Model):
-    ubicacion = models.CharField()
+    idalmacen = models.AutoField(primary_key=True)
     idproveedor = models.ForeignKey('Proveedor', models.DO_NOTHING, db_column='idproveedor', blank=True, null=True)
-    idalmacen = models.IntegerField(primary_key=True)
-    idtransporte = models.ForeignKey('Transporte', models.DO_NOTHING, db_column='idtransporte', blank=True, null=True)
-    idproducto = models.ForeignKey('Producto', models.DO_NOTHING, db_column='idproducto', blank=True, null=True)
-    cantidadprod = models.IntegerField()
-    cantidadtransp = models.IntegerField()
+    idubicacion = models.ForeignKey('Ubicacion', models.DO_NOTHING, db_column='idubicacion', blank=True, null=True)
 
     class Meta:
         managed = False
@@ -91,6 +87,19 @@ class AuthUserUserPermissions(models.Model):
         unique_together = (('user', 'permission'),)
 
 
+class Detallepedido(models.Model):
+    iddetallepedido = models.AutoField(primary_key=True)
+    idpedido = models.ForeignKey('Pedido', models.DO_NOTHING, db_column='idpedido', blank=True, null=True)
+    idlocalrecojo = models.ForeignKey('Local', models.DO_NOTHING, db_column='idlocalrecojo', blank=True, null=True)
+    idlocalentrega = models.ForeignKey('Local', models.DO_NOTHING, db_column='idlocalentrega', related_name='detallepedido_idlocalentrega_set', blank=True, null=True)
+    idproducto = models.ForeignKey('Producto', models.DO_NOTHING, db_column='idproducto', blank=True, null=True)
+    cantidad = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'detallepedido'
+
+
 class DjangoAdminLog(models.Model):
     action_time = models.DateTimeField()
     object_id = models.TextField(blank=True, null=True)
@@ -138,11 +147,10 @@ class DjangoSession(models.Model):
 
 class Empresario(models.Model):
     idempresario = models.AutoField(primary_key=True)
-    nombres = models.CharField()
-    apellidos = models.CharField()
-    correo = models.CharField()
-    ruc = models.BigIntegerField()
-    idusuario = models.ForeignKey('Usuario', models.DO_NOTHING, db_column='idusuario')
+    nombres = models.CharField(blank=True, null=True)
+    apellidos = models.CharField(blank=True, null=True)
+    correo = models.CharField(blank=True, null=True)
+    idusuario = models.ForeignKey('Usuario', models.DO_NOTHING, db_column='idusuario', blank=True, null=True)
 
     class Meta:
         managed = False
@@ -151,13 +159,9 @@ class Empresario(models.Model):
 
 class Local(models.Model):
     idlocal = models.AutoField(primary_key=True)
-    direccion = models.CharField(blank=True, null=True)
-    nombrelocal = models.CharField()
     idempresario = models.ForeignKey(Empresario, models.DO_NOTHING, db_column='idempresario')
-    distrito = models.CharField(blank=True, null=True)
-    region = models.CharField(blank=True, null=True)
-    longitud = models.FloatField()
-    latitud = models.FloatField()
+    idubicacion = models.ForeignKey('Ubicacion', models.DO_NOTHING, db_column='idubicacion')
+    tipo = models.CharField(blank=True, null=True)
 
     class Meta:
         managed = False
@@ -165,18 +169,40 @@ class Local(models.Model):
 
 
 class Localproducto(models.Model):
-    idlocalprod = models.AutoField(primary_key=True)
-    idlocal = models.ForeignKey(Local, models.DO_NOTHING, db_column='idlocal')
-    idproducto = models.ForeignKey('Producto', models.DO_NOTHING, db_column='idproducto')
+    idlocalproducto = models.AutoField(primary_key=True)
+    idlocal = models.ForeignKey(Local, models.DO_NOTHING, db_column='idlocal', blank=True, null=True)
+    idproducto = models.ForeignKey('Producto', models.DO_NOTHING, db_column='idproducto', blank=True, null=True)
+    cantidad = models.IntegerField(blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = 'localproducto'
 
 
+class Parada(models.Model):
+    idparada = models.AutoField(primary_key=True)
+    idruta = models.ForeignKey('Ruta', models.DO_NOTHING, db_column='idruta', blank=True, null=True)
+    idubicacion = models.ForeignKey('Ubicacion', models.DO_NOTHING, db_column='idubicacion', blank=True, null=True)
+    tipo = models.CharField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'parada'
+
+
+class Pedido(models.Model):
+    idpedido = models.AutoField(primary_key=True)
+    idempresario = models.ForeignKey(Empresario, models.DO_NOTHING, db_column='idempresario', blank=True, null=True)
+    estado = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'pedido'
+
+
 class Producto(models.Model):
     idproducto = models.AutoField(primary_key=True)
-    nombre = models.CharField()
+    nombre = models.CharField(blank=True, null=True)
 
     class Meta:
         managed = False
@@ -185,25 +211,39 @@ class Producto(models.Model):
 
 class Proveedor(models.Model):
     idproveedor = models.AutoField(primary_key=True)
-    idusuario = models.ForeignKey('Usuario', models.DO_NOTHING, db_column='idusuario')
+    idusuario = models.ForeignKey('Usuario', models.DO_NOTHING, db_column='idusuario', blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = 'proveedor'
 
 
-class Transporte(models.Model):
-    idtransporte = models.AutoField(primary_key=True)
-    disponibilidad = models.CharField()
+class Ruta(models.Model):
+    idruta = models.AutoField(primary_key=True)
+    idalmacen = models.ForeignKey(Almacen, models.DO_NOTHING, db_column='idalmacen', blank=True, null=True)
+    transporte = models.IntegerField(blank=True, null=True)
 
     class Meta:
         managed = False
-        db_table = 'transporte'
+        db_table = 'ruta'
+
+
+class Ubicacion(models.Model):
+    idubicacion = models.AutoField(primary_key=True)
+    direccion = models.CharField(blank=True, null=True)
+    distrito = models.CharField(blank=True, null=True)
+    region = models.CharField(blank=True, null=True)
+    lonigtud = models.IntegerField(blank=True, null=True)
+    latitud = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'ubicacion'
 
 
 class Usuario(models.Model):
-    nombre_usuario = models.CharField()
-    contrasenia = models.CharField()
+    nombre_usuario = models.CharField(blank=True, null=True)
+    contrasenia = models.CharField(blank=True, null=True)
     idusuario = models.AutoField(primary_key=True)
 
     class Meta:

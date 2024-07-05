@@ -47,6 +47,10 @@ INSTALLED_APPS = [
     'Proveedores',
     'Almacenes',
     'Transportes',
+    'Pedidos',
+    'Paradas',
+    'Rutas',
+    'Ubicaciones',
 ]
 
 MIDDLEWARE = [
@@ -98,10 +102,10 @@ WSGI_APPLICATION = 'BipBip.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'admin123',
-        'HOST': 'localhost',
+        'NAME': 'bipbip',
+        'USER': 'anti',
+        'PASSWORD': 'viWtwdV8E449WpnsG1uxumFxUDdPK1D3',
+        'HOST': 'dpg-cq3htuss1f4s73fgp8h0-a.oregon-postgres.render.com',
         'PORT': '5432',
     }
 }
