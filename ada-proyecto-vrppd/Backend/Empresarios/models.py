@@ -7,7 +7,7 @@ class Empresario(models.Model):
     nombres = models.CharField(blank=True, null=True)
     apellidos = models.CharField(blank=True, null=True)
     correo = models.CharField(blank=True, null=True)
-    idusuario = models.ForeignKey('Usuario', models.DO_NOTHING, db_column='idusuario', blank=True, null=True)
+    idusuario = models.ForeignKey(Usuario, models.DO_NOTHING, db_column='idusuario', blank=True, null=True)
 
     class Meta:
         managed = False

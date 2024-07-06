@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'Productos',
     'Proveedores',
     'Almacenes',
-    'Transportes',
+    'DetallePedidos',
     'Pedidos',
     'Paradas',
     'Rutas',
