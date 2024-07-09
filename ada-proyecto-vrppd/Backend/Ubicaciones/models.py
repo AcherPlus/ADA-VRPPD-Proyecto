@@ -6,7 +6,7 @@ class Ubicacion(models.Model):
     direccion = models.CharField(blank=True, null=True)
     distrito = models.CharField(blank=True, null=True)
     region = models.CharField(blank=True, null=True)
-    lonigtud = models.IntegerField(blank=True, null=True)
+    longitud = models.IntegerField(blank=True, null=True)
     latitud = models.IntegerField(blank=True, null=True)
 
     class Meta:

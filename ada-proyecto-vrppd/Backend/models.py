@@ -162,6 +162,7 @@ class Local(models.Model):
     idempresario = models.ForeignKey(Empresario, models.DO_NOTHING, db_column='idempresario')
     idubicacion = models.ForeignKey('Ubicacion', models.DO_NOTHING, db_column='idubicacion')
     tipo = models.CharField(blank=True, null=True)
+    nombre = models.CharField(blank=True, null=True)
 
     class Meta:
         managed = False
@@ -233,7 +234,7 @@ class Ubicacion(models.Model):
     direccion = models.CharField(blank=True, null=True)
     distrito = models.CharField(blank=True, null=True)
     region = models.CharField(blank=True, null=True)
-    lonigtud = models.IntegerField(blank=True, null=True)
+    longitud = models.IntegerField(blank=True, null=True)
     latitud = models.IntegerField(blank=True, null=True)
 
     class Meta:

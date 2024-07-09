@@ -10,6 +10,7 @@ class Local(models.Model):
     idempresario = models.ForeignKey(Empresario, models.DO_NOTHING, db_column='idempresario')
     idubicacion = models.ForeignKey(Ubicacion, models.DO_NOTHING, db_column='idubicacion')
     tipo = models.CharField(blank=True, null=True)
+    nombre = models.CharField(blank=True, null=True)
 
     class Meta:
         managed = False
