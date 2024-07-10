@@ -17,17 +17,17 @@ export class InicioSesionProveedorComponent {
 
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
-      dni: ['', [Validators.required, Validators.pattern('\\d+')]],
+      dni: ['', [Validators.required]],
       password: ['', [Validators.required]]
     });
   }
 
   onSubmit() {
     if (this.loginForm.valid) {
-      const dni = this.loginForm.get('dni')?.value;
+      const username = this.loginForm.get('username')?.value;
       const password = this.loginForm.get('password')?.value;
 
-      this.authService.login(dni, password).subscribe(
+      this.authService.login(username, password).subscribe(
         success => {
           this.router.navigate(['/bienvenido-proveedor']);
         },
