@@ -2,7 +2,6 @@ from django.db import models
 from Empresarios.models import Empresario
 from Productos.models import Producto
 from Ubicaciones.models import Ubicacion
-from geopy.geocoders import Nominatim
 
 # Create your models here.
 class Local(models.Model):
