@@ -1,4 +1,3 @@
-// app-routing.module.ts
 import { Routes } from '@angular/router';
 import { InicioSesionGeneralComponent } from './inicio-sesion-general/inicio-sesion-general.component';
 import { PaginaInicioComponent } from './pagina-inicio/pagina-inicio.component';
@@ -29,7 +28,6 @@ export const routes: Routes = [
     { path: 'enviar-paquete', component: EnvioInputEmpresarioComponent },
     { path: 'resumen-envio', component: EnvioResumenEmpresarioComponent },
     { path: 'ver-seguimiento', component: VerSeguimientoEmpresarioComponent },
-    // Proveedor
     { path: 'proveedor-sesion', component: InicioSesionProveedorComponent },
     { path: 'bienvenido-proveedor', component: BienvenidoProveedorComponent, canActivate: [AuthGuard] },
     { path: 'historial-proveedor', component: HistorialProveedorComponent, canActivate: [AuthGuard] },
@@ -40,5 +38,5 @@ export const routes: Routes = [
     { path: 'editar-lista-transporte-proveedor', component: EditarListaTransporteProveedorComponent, canActivate: [AuthGuard] },
     { path: 'editar-productos-proveedor', component: EditarProductosProveedorComponent, canActivate: [AuthGuard] },
     { path: 'productos-proveedor', component: ProductosProveedorComponent, canActivate: [AuthGuard] },
-    { path: '**', redirectTo: '/pagina-inicio', pathMatch: 'full' },
+    { path: '**', redirectTo: 'pagina-inicio', pathMatch: 'full' }
 ];
