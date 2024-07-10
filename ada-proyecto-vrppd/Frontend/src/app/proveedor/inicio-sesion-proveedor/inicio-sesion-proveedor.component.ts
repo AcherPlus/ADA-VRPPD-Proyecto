@@ -1,14 +1,16 @@
+// inicio-sesion-proveedor.component.ts
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { AuthService } from '../../services/auth.service'; // Ajusta la ruta según tu estructura
+import { AuthService } from '../../services/auth.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-inicio-sesion-proveedor',
-  standalone: true,
   templateUrl: './inicio-sesion-proveedor.component.html',
   styleUrls: ['./inicio-sesion-proveedor.component.css'],
-  imports: [RouterModule]
+  imports: [RouterModule, ReactiveFormsModule, CommonModule],
+  standalone: true
 })
 export class InicioSesionProveedorComponent {
   loginForm: FormGroup;

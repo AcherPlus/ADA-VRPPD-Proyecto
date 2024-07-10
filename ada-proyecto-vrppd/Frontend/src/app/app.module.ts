@@ -32,6 +32,7 @@ import { EditarListaTransporteProveedorComponent } from './proveedor/editar-list
 import { AuthGuard } from './services/auth.guard';
 import { AuthService } from './services/auth.service';
 import { AuthInterceptor } from './services/auth.interceptor';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -58,8 +59,8 @@ import { AuthInterceptor } from './services/auth.interceptor';
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule,
     ReactiveFormsModule,
+    FormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [

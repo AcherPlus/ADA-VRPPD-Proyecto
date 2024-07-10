@@ -6,10 +6,10 @@
         <div class="card" style="width: 28rem; height: 35rem">
           <div class="card-body d-flex flex-column justify-content-center align-items-center">
             <h2>Iniciar Sesión</h2>
-            <form formGroup="loginForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
               <div class="mt-3 mb-3">
                 <label class="form-label">Nombre de usuario</label>
-                <input formControlName="username" type="text" class="form-control" placeholder="Ingrese aquí" />
+                <input formControlName="dni" type="text" class="form-control" placeholder="Ingrese aquí" />
               </div>
               <div class="mt-3 mb-3">
                 <label class="form-label">Contraseña</label>

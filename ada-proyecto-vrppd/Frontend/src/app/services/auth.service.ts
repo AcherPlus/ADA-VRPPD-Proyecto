@@ -12,8 +12,8 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  login(username: string, password: string): Observable<any> {
-    return this.http.post<any>(this.apiUrl, { username, password }).pipe(
+  login(dni: string, password: string): Observable<any> {
+    return this.http.post<any>(this.apiUrl, { dni, password }).pipe(
       tap(response => {
         localStorage.setItem('authToken', response.access);
         localStorage.setItem('refreshToken', response.refresh);
