@@ -150,7 +150,8 @@ class Empresario(models.Model):
     nombres = models.CharField(blank=True, null=True)
     apellidos = models.CharField(blank=True, null=True)
     correo = models.CharField(blank=True, null=True)
-    idusuario = models.ForeignKey('Usuario', models.DO_NOTHING, db_column='idusuario', blank=True, null=True)
+    nombre_usuario_emp = models.CharField(blank=True, null=True)
+    password_emp = models.CharField(blank=True, null=True)
 
     class Meta:
         managed = False
@@ -212,7 +213,8 @@ class Producto(models.Model):
 
 class Proveedor(models.Model):
     idproveedor = models.AutoField(primary_key=True)
-    idusuario = models.ForeignKey('Usuario', models.DO_NOTHING, db_column='idusuario', blank=True, null=True)
+    nombre_usuario_prov = models.CharField(blank=True, null=True)
+    password_prov = models.CharField(blank=True, null=True)
 
     class Meta:
         managed = False
@@ -240,13 +242,3 @@ class Ubicacion(models.Model):
     class Meta:
         managed = False
         db_table = 'ubicacion'
-
-
-class Usuario(models.Model):
-    nombre_usuario = models.CharField(blank=True, null=True)
-    contrasenia = models.CharField(blank=True, null=True)
-    idusuario = models.AutoField(primary_key=True)
-
-    class Meta:
-        managed = False
-        db_table = 'usuario'
