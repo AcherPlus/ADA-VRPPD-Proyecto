@@ -1,6 +1,14 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+// app.module.ts
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
+import { AppComponent } from './app.component';
+import { routes } from './app.routes';
+
+// Importar los componentes
 import { PaginaInicioComponent } from './pagina-inicio/pagina-inicio.component';
 import { InicioSesionGeneralComponent } from './inicio-sesion-general/inicio-sesion-general.component';
 import { InicioSesionProveedorComponent } from './proveedor/inicio-sesion-proveedor/inicio-sesion-proveedor.component';
@@ -21,43 +29,49 @@ import { EditarProductosProveedorComponent } from './proveedor/editar-productos-
 import { ListaTransporteProveedorComponent } from './proveedor/lista-transporte-proveedor/lista-transporte-proveedor.component';
 import { EditarListaTransporteProveedorComponent } from './proveedor/editar-lista-transporte-proveedor/editar-lista-transporte-proveedor.component';
 
-@Component({
-  selector: 'app-root',
-  standalone: true,
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
-  imports: [
-    //Importar lo necesario para que funcione la aplicacion
-    RouterOutlet,
-    FormsModule,
-    ReactiveFormsModule,
+import { AuthGuard } from './services/auth.guard';
+import { AuthService } from './services/auth.service';
+import { AuthInterceptor } from './services/auth.interceptor';
+import { CommonModule } from '@angular/common';
 
-    //Modulos de empresario
+@NgModule({
+  declarations: [
+    AppComponent,
+    PaginaInicioComponent,
+    InicioSesionGeneralComponent,
+    InicioSesionProveedorComponent,
+    BienvenidoProveedorComponent,
     InicioSesionEmpresarioComponent,
     CrearCuentaEmpresarioComponent,
     PrincipalEmpresarioComponent,
     EnvioInputEmpresarioComponent,
     EnvioResumenEmpresarioComponent,
     VerSeguimientoEmpresarioComponent,
-
-    //Modulos generales
-    PaginaInicioComponent,
-    InicioSesionGeneralComponent,
-    NavbarBipComponent,
-
-    //Modulos de proveedor
-    InicioSesionProveedorComponent,
     HistorialProveedorComponent,
-    BienvenidoProveedorComponent,
-    AsignarTransporteProveedorComponent,
     AlmacenesProveedorComponent,
     EditarAlmacenesProveedorComponent,
     ProductosProveedorComponent,
     EditarProductosProveedorComponent,
     ListaTransporteProveedorComponent,
-    EditarListaTransporteProveedorComponent
-  ]
+    EditarListaTransporteProveedorComponent,
+    NavbarBipComponent,
+  ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    RouterModule.forRoot(routes)
+  ],
+  providers: [
+    AuthService,
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
+  bootstrap: [AppComponent]
 })
-export class AppComponent {
-  title = 'ada-proyecto-vrppd';
-}
+export class AppModule { }

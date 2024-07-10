@@ -1,25 +1,25 @@
+<!-- inicio-sesion-proveedor.component.html -->
 <section class="d-flex justify-content-center align-items-center">
   <div class="container-fluid">
-      <div class="row justify-content-center">
-          <div class="col-auto">
-              <div class="card" style="width: 28rem; height: 35rem;">
-                  <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                      <h2>Iniciar Sesión</h2>
-                      <form>
-                          <div class="mt-3 mb-3">
-                            <label class="form-label">Nombre de usuario</label>
-                            <input type="text" class="form-control" placeholder="Ingrese aquí">
-                          </div>
-                          <div class="mt-3 mb-3">
-                            <label class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" placeholder="Ingrese aquí">
-                          </div>
-                      </form>
-                      <button type="submit" class="btn btn-light" routerLink="/bienvenido-proveedor">Ingresar</button>
-                      <span>¿Eres nuevo? <a href="#" routerLink="/proveedor-crear-cuenta">Crear cuenta</a></span>
-                  </div>
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <div class="card" style="width: 28rem; height: 35rem">
+          <div class="card-body d-flex flex-column justify-content-center align-items-center">
+            <h2>Iniciar Sesión</h2>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div class="mt-3 mb-3">
+                <label class="form-label">Nombre de usuario</label>
+                <input formControlName="dni" type="text" class="form-control" placeholder="Ingrese aquí" />
               </div>
+              <div class="mt-3 mb-3">
+                <label class="form-label">Contraseña</label>
+                <input formControlName="password" type="password" class="form-control" placeholder="Ingrese aquí" />
+              </div>
+              <button type="submit" class="btn btn-light">Ingresar</button>
+            </form>
           </div>
+        </div>
       </div>
+    </div>
   </div>
 </section>
