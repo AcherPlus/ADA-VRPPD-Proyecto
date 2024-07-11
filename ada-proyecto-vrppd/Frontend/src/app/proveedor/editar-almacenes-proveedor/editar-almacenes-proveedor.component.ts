@@ -3,7 +3,6 @@ import { Router, RouterModule } from '@angular/router';
 import { NavbarBipComponent } from '../../navbar-bip/navbar-bip.component';
 import { AlmacenService } from '../../services/almacen.service';
 import { NgFor } from '@angular/common';
-import jQuery from 'jquery';
 
 // Extend jQuery to include the 'modal' method
 declare global {
@@ -61,50 +60,5 @@ export class EditarAlmacenesProveedorComponent implements OnInit {
     );
   }
 
-  confirmarEliminar(ubicacion: any): void {
-    this.ubicacionSeleccionada = ubicacion; // Guardar la ubicación seleccionada
-    // Mostrar el modal de confirmación usando jQuery
-    $('#confirmModal').modal('show');
-  }
-
-  eliminarUbicacionConfirmada(): void {
-    if (this.ubicacionSeleccionada) {
-      // Llamar al servicio para eliminar la ubicación seleccionada
-      this.almacenService.deleteUbicaciones(this.ubicacionSeleccionada.idubicacion).subscribe(
-        () => {
-          console.log(`Ubicación ${this.ubicacionSeleccionada.idubicacion} eliminada correctamente`);
-          this.cargarUbicaciones(); // Recargar la lista después de eliminar
-          $('#confirmModal').modal('hide'); // Ocultar el modal después de la eliminación
-        },
-        (error: any) => {
-          console.error(`Error al eliminar la ubicación ${this.ubicacionSeleccionada.idubicacion}`, error);
-          // Manejar el error aquí
-          $('#confirmModal').modal('hide'); // Ocultar el modal en caso de error
-        }
-      );
-    }
-  }
-
-  eliminarUbicacionesSeleccionadas(): void {
-    // Recorrer y eliminar las ubicaciones seleccionadas
-    for (const ubicacion of this.seleccionados) {
-      this.almacenService.deleteUbicaciones(ubicacion.idubicacion).subscribe(
-        () => {
-          console.log(`Ubicación ${ubicacion.idubicacion} eliminada correctamente`);
-          this.cargarUbicaciones(); // Recargar la lista después de eliminar
-        },
-        (error: any) => {
-          console.error(`Error al eliminar la ubicación ${ubicacion.idubicacion}`, error);
-          // Manejar el error aquí
-        }
-      );
-    }
-    // Limpiar el array de seleccionados después de la eliminación
-    this.seleccionados = [];
-  }
-
-  guardarCambios(): void {
-    // Implementar lógica para guardar los cambios si es necesario
-    this.router.navigate(['/bienvenido-proveedor']); // Redirigir a la página de bienvenida después de guardar cambios
-  }
+  
 }
