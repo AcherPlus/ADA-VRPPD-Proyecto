@@ -1,0 +1,64 @@
+<app-navbar-bip/>
+<section class="d-flex justify-content-center mt-5" style="min-height: 100vh;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12" style="width: 60%;">
+                <h1 class="text-center">Ingresar datos de envío</h1>
+                <form class="row g-3 mt-4">
+                    
+                    <div class="col-md-3">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Region</option>
+                            <option value="1">Lima</option>
+                            <option value="2">Canta</option>
+                            <option value="3">Yauyos</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Distrito</option>
+                            <option value="1">San Juan de Lurigancho</option>
+                            <option value="2">Lince</option>
+                            <option value="3">Miraflores</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Tipo</option>
+                            <option value="1">Almacén</option>
+                            <option value="2">Tienda</option>
+                        </select>
+                    </div>
+                
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-warning" routerLink="/administrar-mapa">Añadir Local</button>
+                    </div>   
+                </form>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-12" style="width: 60%;">
+                <table class="table mt-5 table-local table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">Número</th>
+                            <th scope="col">Región</th>
+                            <th scope="col">Distrito</th>
+                            <th scope="col">Tipo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Lima</td>
+                            <td>San Juan de Lurigancho</td>
+                            <td>Bebidas</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
