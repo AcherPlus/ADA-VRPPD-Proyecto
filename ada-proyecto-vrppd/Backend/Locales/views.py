@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .serializers import LocalSerializer
 from Ubicaciones.serializers import UbicacionSerializer
-from .models import Local, Empresario
+from .models import Empresario
 
 @api_view(['POST'])
 def crear_local(request):
