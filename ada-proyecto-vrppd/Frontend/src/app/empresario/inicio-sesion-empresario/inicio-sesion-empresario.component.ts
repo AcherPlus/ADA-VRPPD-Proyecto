@@ -35,21 +35,21 @@ export class InicioSesionEmpresarioComponent {
       const username = this.loginForm.get('dni')?.value;
       const password = this.loginForm.get('password')?.value;
       this.empresarioService.login(username, password).subscribe({
-        next: (success) => {
-          if (success) {
+        next: (user) => {
+          if (user) {
             this.empresarioService.setLoginStatus(true);
             this.router.navigate(['/inicio-empresario']);
           } else {
-            alert('usuario o pass incorrecto');
+            alert('Usuario o contraseña incorrectos');
           }
         },
         error: (error) => {
-          alert('Error en el incio');
+          alert('Error en el inicio de sesión');
           console.error('Error', error);
         },
       });
     } else {
-      console.log('Form is invalid');
+      console.log('El formulario es inválido');
     }
   }
 }
