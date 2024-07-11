@@ -4,4 +4,4 @@ from .models import Local
 class LocalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Local
-        fields = '__all__'
+        fields = ['idubicacion', 'nombre', 'tipo']
