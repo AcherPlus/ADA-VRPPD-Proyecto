@@ -5,7 +5,7 @@ from Empresarios.models import Empresario
 class Pedido(models.Model):
     idpedido = models.AutoField(primary_key=True)
     idempresario = models.ForeignKey(Empresario, models.DO_NOTHING, db_column='idempresario', blank=True, null=True)
-    estado = models.IntegerField(blank=True, null=True)
+    estado = models.CharField(blank=True, null=True)
 
     class Meta:
         managed = False

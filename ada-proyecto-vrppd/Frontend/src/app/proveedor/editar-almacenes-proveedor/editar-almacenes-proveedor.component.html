@@ -1,56 +1,36 @@
-<app-navbar-bip />
 <div class="container">
     <div class="row my-4">
         <div class="col text-center">
             <h2>Almacenes</h2>
         </div>
     </div>
+
     <div class="table-container">
         <table class="table table-hover border">
             <thead class="thead-light">
                 <tr>
-                    <th scope="col"></th>
                     <th scope="col">Nombre del almacén</th>
-                    <th scope="col">Productos</th>
+                    <th scope="col">Dirección</th>
                     <th scope="col">Ubicación</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="checkbox-container"><input type="checkbox" checked></td>
-                    <td>Restaurante “Mm rico”</td>
-                    <td>Ron Cartavio</td>
-                    <td>La Unión</td>
-                    <td><button type="button" class="btn btn-warning">Establecer inicio de ruta</button></td>
-                </tr>
-                <tr>
-                    <td class="checkbox-container"><input type="checkbox" checked></td>
-                    <td>Cevichería “El pez feliz”</td>
-                    <td>Gaseosa Inka Kola</td>
-                    <td>San Juan</td>
-                    <td><button type="button" class="btn btn-warning">Establecer inicio de ruta</button></td>
-                </tr>
-                <tr>
-                    <td class="checkbox-container"><input type="checkbox" checked></td>
-                    <td>El Bar de Moe</td>
-                    <td>Agua “Cielo”</td>
-                    <td>Puebla</td>
-                    <td><button type="button" class="btn btn-warning">Establecer inicio de ruta</button></td>
-                </tr>
-                <tr>
-                    <td class="checkbox-container"><input type="checkbox" checked></td>
-                    <td>Club Campestre “Verde”</td>
-                    <td>Fourloko</td>
-                    <td>Lima Center</td>
-                    <td><button type="button" class="btn btn-warning">Establecer inicio de ruta</button></td>
+                <tr *ngFor="let ubicacion of ubicaciones">
+                    <td>{{ ubicacion.idubicacion }}</td>
+                    <td>{{ ubicacion.direccion }}</td>
+                    <td>{{ ubicacion.distrito }} / {{ ubicacion.region }}</td>
+                    <td>
+                        <button type="button" class="btn btn-warning" >Establecer inicio de ruta</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
+
     <div class="btn-center my-4">
-        <button type="button" class="btn btn-warning mx-2">Eliminar</button>
+        <button type="button" class="btn btn-warning mx-2" >Eliminar</button>
         <button type="button" class="btn btn-warning mx-2">Agregar</button>
-        <button type="button" class="btn btn-warning mx-2" routerLink="/bienvenido-proveedor">Guardar</button>
+        <button type="button" class="btn btn-warning mx-2">Guardar</button>
     </div>
 </div>
