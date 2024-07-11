@@ -5,22 +5,15 @@
             <div class="col-12" style="width: 60%;">
                 <h1 class="text-center">Seleccionar en el mapa</h1>
                 <form class="row g-3 mt-4">
-                    
                     <div class="col-md-2">
-                        <input type="text" class="form-control" placeholder="Region" disabled>
-                    </div>
-
-                    <div class="col-md-2">
-                        <input type="text" class="form-control" placeholder="Distrito" disabled>
-                    </div>
-                    <div class="col-md-2">
-                        <input type="text" class="form-control" placeholder="Direccion" disabled>
-                    </div>
-                    <div class="col-md-2">
-                        <input type="text" class="form-control" placeholder="Tipo" disabled>
+                        <select id="tipo" class="form-select" aria-label="Default select example" required>
+                            <option value="">Tipo</option>
+                            <option value="Almacen">Almacén</option>
+                            <option value="Tienda">Tienda</option>
+                        </select>
                     </div>
                     <div class="col-md-3">
-                        <input type="text" class="form-control" placeholder="Nombre">
+                        <input id="nombre" type="text" class="form-control" placeholder="Nombre" required>
                     </div>
                     
                 </form>
@@ -32,7 +25,7 @@
             </div>
         </div>
         <div class="col-12 d-flex justify-content-center align-items-center mb-5">
-            <button class="btn btn-warning mt-3 justify-content-center" routerLink="/administrar-local"><b>Agregar</b></button>
+            <button class="btn btn-warning mt-3 justify-content-center" routerLink="/administrar-local" ><b>Agregar</b></button>
         </div>
     </div>
 </section>

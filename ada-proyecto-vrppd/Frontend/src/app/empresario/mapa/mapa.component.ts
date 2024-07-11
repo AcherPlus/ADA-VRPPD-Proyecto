@@ -61,4 +61,5 @@ export class MapaComponent implements OnInit {
       })
       .catch(error => console.error("Error fetching geocoding data: ",error));
   }
+
 }

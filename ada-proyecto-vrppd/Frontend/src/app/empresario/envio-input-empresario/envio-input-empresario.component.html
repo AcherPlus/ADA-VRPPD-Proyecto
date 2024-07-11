@@ -13,7 +13,12 @@
 
                     <label for="inputEmail4"><b>¿Qué envías?</b></label>
                     <div class="col-4">
-                        <input type="text" class="form-control" id="inputAddress2" placeholder="Producto">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Producto</option>
+                            @for (producto of productos; track $index) {
+                                <option>{{producto.nombre}}</option>
+                            }
+                        </select>
                     </div>
                     <div class="col-4">
                         <input type="number" class="form-control" id="inputAddress2" placeholder="Cantidad" min="1">
