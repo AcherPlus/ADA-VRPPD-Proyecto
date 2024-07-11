@@ -1,56 +1,57 @@
-<app-navbar-bip />
 <div class="container">
     <div class="row my-4">
         <div class="col text-center">
             <h2>Almacenes</h2>
         </div>
     </div>
+
     <div class="table-container">
         <table class="table table-hover border">
             <thead class="thead-light">
                 <tr>
-                    <th scope="col"></th>
                     <th scope="col">Nombre del almacén</th>
-                    <th scope="col">Productos</th>
+                    <th scope="col">Dirección</th>
                     <th scope="col">Ubicación</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="checkbox-container"><input type="checkbox" checked></td>
-                    <td>Restaurante “Mm rico”</td>
-                    <td>Ron Cartavio</td>
-                    <td>La Unión</td>
-                    <td><button type="button" class="btn btn-warning">Establecer inicio de ruta</button></td>
-                </tr>
-                <tr>
-                    <td class="checkbox-container"><input type="checkbox" checked></td>
-                    <td>Cevichería “El pez feliz”</td>
-                    <td>Gaseosa Inka Kola</td>
-                    <td>San Juan</td>
-                    <td><button type="button" class="btn btn-warning">Establecer inicio de ruta</button></td>
-                </tr>
-                <tr>
-                    <td class="checkbox-container"><input type="checkbox" checked></td>
-                    <td>El Bar de Moe</td>
-                    <td>Agua “Cielo”</td>
-                    <td>Puebla</td>
-                    <td><button type="button" class="btn btn-warning">Establecer inicio de ruta</button></td>
-                </tr>
-                <tr>
-                    <td class="checkbox-container"><input type="checkbox" checked></td>
-                    <td>Club Campestre “Verde”</td>
-                    <td>Fourloko</td>
-                    <td>Lima Center</td>
-                    <td><button type="button" class="btn btn-warning">Establecer inicio de ruta</button></td>
+                <tr *ngFor="let ubicacion of ubicaciones">
+                    <td>{{ ubicacion.idubicacion }}</td>
+                    <td>{{ ubicacion.direccion }}</td>
+                    <td>{{ ubicacion.distrito }} / {{ ubicacion.region }}</td>
+                    <td>
+                        <button type="button" class="btn btn-warning" (click)="confirmarEliminar(ubicacion)">Establecer inicio de ruta</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
+
     <div class="btn-center my-4">
-        <button type="button" class="btn btn-warning mx-2">Eliminar</button>
-        <button type="button" class="btn btn-warning mx-2">Agregar</button>
-        <button type="button" class="btn btn-warning mx-2" routerLink="/bienvenido-proveedor">Guardar</button>
+        <button type="button" class="btn btn-warning mx-2" (click)="eliminarUbicacionesSeleccionadas()">Eliminar</button>
+        <button type="button" class="btn btn-warning mx-2" (click)="agregarUbicacion()">Agregar</button>
+        <button type="button" class="btn btn-warning mx-2" (click)="guardarCambios()">Guardar</button>
+    </div>
+</div>
+
+<!-- Modal de confirmación -->
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmModalLabel">Confirmar eliminación</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ¿Estás seguro de que quieres eliminar esta ubicación?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" (click)="eliminarUbicacionConfirmada()">Eliminar</button>
+            </div>
+        </div>
     </div>
 </div>
