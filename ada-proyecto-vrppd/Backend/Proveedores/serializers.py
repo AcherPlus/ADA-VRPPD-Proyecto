@@ -4,4 +4,4 @@ from .models import Proveedor
 class ProveedorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Proveedor
-        fields = '__all__'
+        fields = ['nombre_usuario_prov', 'password_prov']

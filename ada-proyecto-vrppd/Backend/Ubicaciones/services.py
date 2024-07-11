@@ -1,14 +1,11 @@
+# Ubicaciones/services.py
 import requests
 
-def get_address_from_coordinates(lat, lon):
-    url = f'https://nominatim.openstreetmap.org/reverse?format=json&lat={lat}&lon={lon}&addressdetails=1'
-    response = requests.get(url)
-    if response.status_code == 200:
-        data = response.json()
-        address = data.get('address', {})
-        return {
-            'direccion': address.get('road', ''),
-            'distrito': address.get('suburb', ''),
-            'region': address.get('state', '')
-        }
-    return {}
+def get_address_from_coordinates(latitud, longitud):
+    response = requests.get(f'https://nominatim.openstreetmap.org/reverse?format=json&lat={latitud}&lon={longitud}')
+    data = response.json()
+    return {
+        'direccion': data.get('display_name', ''),
+        'distrito': data.get('address', {}).get('city_district', ''),
+        'region': data.get('address', {}).get('state', ''),
+    }

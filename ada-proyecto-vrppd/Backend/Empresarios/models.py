@@ -1,5 +1,4 @@
 from django.db import models
-from Usuarios.models import Usuario
 
 # Create your models here.
 class Empresario(models.Model):
@@ -7,7 +6,8 @@ class Empresario(models.Model):
     nombres = models.CharField(blank=True, null=True)
     apellidos = models.CharField(blank=True, null=True)
     correo = models.CharField(blank=True, null=True)
-    idusuario = models.ForeignKey(Usuario, models.DO_NOTHING, db_column='idusuario', blank=True, null=True)
+    nombre_usuario_emp = models.CharField(blank=True, null=True)
+    password_emp = models.CharField(blank=True, null=True)
 
     class Meta:
         managed = False

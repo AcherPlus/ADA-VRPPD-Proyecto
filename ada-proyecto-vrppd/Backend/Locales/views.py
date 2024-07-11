@@ -1,47 +1,31 @@
 from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import api_view
 from .serializers import LocalSerializer
-from .models import Local
+from .models import Local, Empresario
 
 @api_view(['POST'])
-@permission_classes([IsAuthenticated])
 def crear_local(request):
-    if request.method == 'POST':
-        serializer = LocalSerializer(data=request.data)
-        if serializer.is_valid():
-            local = serializer.save(idempresario=request.user.empresario)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-@api_view(['PUT'])
-@permission_classes([IsAuthenticated])
-def editar_local(request, pk):
+    if 'empresario_id' not in request.session:
+        return Response({'message': 'No autorizado'}, status=status.HTTP_401_UNAUTHORIZED)
+    
+    empresario_id = request.session['empresario_id']
     try:
-        local = Local.objects.get(pk=pk)
-    except Local.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-
-    if request.user.empresario != local.idempresario:
-        return Response(status=status.HTTP_403_FORBIDDEN)
-
-    serializer = LocalSerializer(local, data=request.data)
+        empresario = Empresario.objects.get(idempresario=empresario_id)
+    except Empresario.DoesNotExist:
+        return Response({'message': 'Empresario no encontrado'}, status=status.HTTP_404_NOT_FOUND)
+    
+    data = request.data.copy()
+    serializer = LocalSerializer(data=data)
     if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data)
+        validated_data = serializer.validated_data
+        local = Local(
+            idempresario=empresario,
+            idubicacion=validated_data['idubicacion'],
+            tipo=validated_data['tipo'],
+            nombre=validated_data['nombre']
+        )
+        local.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-@api_view(['DELETE'])
-@permission_classes([IsAuthenticated])
-def eliminar_local(request, pk):
-    try:
-        local = Local.objects.get(pk=pk)
-    except Local.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-
-    if request.user.empresario != local.idempresario:
-        return Response(status=status.HTTP_403_FORBIDDEN)
-
-    local.delete()
-    return Response(status=status.HTTP_204_NO_CONTENT)
