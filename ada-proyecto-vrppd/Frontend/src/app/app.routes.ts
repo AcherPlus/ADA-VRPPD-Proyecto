@@ -18,6 +18,8 @@ import { EditarListaTransporteProveedorComponent } from './proveedor/editar-list
 import { EditarProductosProveedorComponent } from './proveedor/editar-productos-proveedor/editar-productos-proveedor.component';
 import { ProductosProveedorComponent } from './proveedor/productos-proveedor/productos-proveedor.component';
 import { AuthGuard } from './services/auth.guard';
+import { AdministrarLocalComponent } from './empresario/administrar-local/administrar-local.component';
+import { AdministarMapaComponent } from './empresario/administar-mapa/administar-mapa.component';
 
 export const routes: Routes = [
     { path: 'pagina-inicio', component: PaginaInicioComponent },
@@ -29,6 +31,8 @@ export const routes: Routes = [
     { path: 'resumen-envio', component: EnvioResumenEmpresarioComponent },
     { path: 'ver-seguimiento', component: VerSeguimientoEmpresarioComponent },
     { path: 'proveedor-sesion', component: InicioSesionProveedorComponent },
+    { path: 'administrar-local', component: AdministrarLocalComponent},
+    { path: 'administrar-mapa', component: AdministarMapaComponent},
     { path: 'bienvenido-proveedor', component: BienvenidoProveedorComponent, canActivate: [AuthGuard] },
     { path: 'historial-proveedor', component: HistorialProveedorComponent, canActivate: [AuthGuard] },
     { path: 'lista-transporte-proveedor', component: ListaTransporteProveedorComponent, canActivate: [AuthGuard] },

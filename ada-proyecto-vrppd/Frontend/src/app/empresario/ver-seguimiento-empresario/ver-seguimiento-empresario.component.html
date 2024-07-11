@@ -1,31 +1,82 @@
 <app-navbar-bip/>
 <section>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <table class="table table-borderless text-center">
-                            <thead>
-                              <tr>
-                                <th scope="col">Fecha de Registro</th>
-                                <th scope="col">Fecha de Entrega</th>
-                                <th scope="col">Origen</th>
-                                <th scope="col">Destino</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td>02/07/2024</td>
-                                <td>03/07/2024</td>
-                                <td>LIMA</td>
-                                <td>AREQUIPA</td>
-                              </tr>
-                            </tbody>
-                        </table>
-                    </div>
+  <div class="container d-flex flex-column">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <table class="table table-borderless table-inicial text-center">
+                        <thead>
+                          <tr>
+                            <th scope="col">Fecha de Registro</th>
+                            <th scope="col">Fecha de Entrega</th>
+                            <th scope="col">Local Recojo</th>
+                            <th scope="col">Local Entrega</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>02/07/2024</td>
+                            <td>03/07/2024</td>
+                            <td>SAN JUAN DE LURIGANCHO</td>
+                            <td>PUENTE PIEDRA</td>
+                          </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
+    <div class="row d-flex justify-content-between">
+      <div class="col-4 mt-5">
+          <h5>Información del envío</h5>
+          <p><b>Local Recojo: </b>San Juan de Lurigancho</p>
+          <p><b>Local Entrega: </b>Puente Piedra</p>
+          <p><b>Producto: </b>Gaseosa</p>
+          <p><b>Cantidad: </b>17</p>
+      </div>
+      <div class="col-8 mt-5">
+          <table class="table table-obs table-bordered text-center">
+              <thead>
+                  <tr>
+                      <th scope="col">Fecha</th>
+                      <th scope="col">Lugar</th>
+                      <th scope="col">Estado</th>
+                      <th scope="col">Observación</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>02/07/2024</td>
+                      <td>San Juan de Lurigancho</td>
+                      <td>REGISTRADO</td>
+                      <td>Ya contamos con la información de tu envío</td>
+                  </tr>
+                  <tr>
+                    <td>02/07/2024</td>
+                    <td>San Juan de Lurigancho</td>
+                    <td>DESPACHADO</td>
+                    <td>Muy pronto llegará a su destino</td>
+                  </tr>
+                  <tr>
+                    <td>03/07/2024</td>
+                    <td>Puente Piedra</td>
+                    <td>EN RUTA</td>
+                    <td>Tu envío se encuentra en ruta para su entrega</td>
+                  </tr>
+                <tr>
+                  <td>03/07/2024</td>
+                  <td>Puente Piedra</td>
+                  <td>ENTREGADO</td>
+                  <td>Tu envío ha sido entregado. ¡Gracias por confiar en nosotros!</td>
+                </tr>
+              </tbody>
+          </table>
+      </div>
+    </div>
+    <div class="col-12 d-flex justify-content-center align-items-center">
+      <button class="btn btn-warning mt-3 justify-content-center" routerLink="/inicio-empresario"><b>Regresar</b></button>
+  </div>
+</div>
+
 </section>

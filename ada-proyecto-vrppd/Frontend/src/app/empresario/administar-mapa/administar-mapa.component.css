@@ -1,0 +1,13 @@
+#map {
+    width: 30%;
+    height: 200px;
+    float: left;
+}
+
+#info {
+    width: 30%;
+    height: 600px;
+    float: right;
+    padding: 20px;
+    border-left: 1px solid #ccc;
+}
