@@ -24,18 +24,23 @@ export class InicioSesionProveedorComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      const username = this.loginForm.get('username')?.value;
+      const username = this.loginForm.get('dni')?.value;
       const password = this.loginForm.get('password')?.value;
 
-      this.authService.login(username, password).subscribe(
-        success => {
-          this.router.navigate(['/bienvenido-proveedor']);
+      this.authService.login(username, password).subscribe({
+        next: success => {
+          if (success) {
+            this.authService.setLoginStatus(true);
+            this.router.navigate(['/bienvenido-proveedor']);
+          } else {
+            alert('Nombre de usuario o contraseña incorrectos');
+          }
         },
-        error => {
-          alert('Nombre de usuario o contraseña incorrectos');
+        error: error => {
+          alert('Error en el inicio de sesión');
           console.error('Error en el inicio de sesión', error);
         }
-      );
+      });
     } else {
       console.log('Form is invalid');
     }
