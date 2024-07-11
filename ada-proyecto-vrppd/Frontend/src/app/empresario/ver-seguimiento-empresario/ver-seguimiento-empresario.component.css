@@ -1,9 +1,18 @@
 .card{
     background-color: #FEE600;
-    width: 50%;
+    width: 100%;
 }
 
-.card th, td{
+.table-inicial th, .table-inicial td, .table-obs th{
     background-color: #FEE600;
     max-width: 150px;
 }
+
+.table-obs td{
+    background-color: #ffffff;
+    max-width: 150px;
+}
+
+
+
+

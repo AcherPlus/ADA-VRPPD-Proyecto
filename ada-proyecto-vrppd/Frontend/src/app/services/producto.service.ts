@@ -9,7 +9,7 @@ export class ProductoService {
 
   constructor(private http:HttpClient) { }
 
-  private urlProduct = 'http://localhost:8000/api/productos/';
+  private urlProduct = 'http://127.0.0.1:8000/api/productos/productos/';
 
   getProductos(): Observable<any>{
     return this.http.get<any>(this.urlProduct);
