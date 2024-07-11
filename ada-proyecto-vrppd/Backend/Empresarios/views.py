@@ -7,23 +7,22 @@ from .serializers import EmpresarioSerializer
 from .forms import LoginForm
 from .models import Empresario
 
+
 @api_view(['POST'])
 def login_empresario(request):
-    form = LoginForm(request.data)
-    if form.is_valid():
-        usuario = form.cleaned_data['usuario']
-        contrasena = form.cleaned_data['contrasena']
+    if request.method == 'POST':
+        usuario = request.data.get('nombre_usuario_emp')
+        contrasena = request.data.get('password_emp')
         try:
             empresario = Empresario.objects.get(nombre_usuario_emp=usuario)
-            if check_password(contrasena, empresario.password_emp):
+            if contrasena == empresario.password_emp: 
                 request.session['empresario_id'] = empresario.idempresario
                 return JsonResponse({'message': 'Login successful', 'role': 'empresario'}, status=200)
             else:
                 return JsonResponse({'message': 'Contraseña incorrecta'}, status=401)
         except Empresario.DoesNotExist:
             return JsonResponse({'message': 'Usuario no encontrado'}, status=404)
-    else:
-        return JsonResponse({'message': 'Invalid data', 'errors': form.errors}, status=400)
+    return JsonResponse({'message': 'Método de solicitud no permitido'}, status=405)
 
 @api_view(['POST'])
 def logout_empresario(request):
