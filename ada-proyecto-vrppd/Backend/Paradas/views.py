@@ -3,13 +3,14 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from django.db import connection
 
+from .vrppd_algo import solve_problem  # Importa la función solve_problem
 # Create your views here.
 
 @api_view(['GET'])
 def vrppd(request):
     try:
         filas = datos_detallepedidos()
-        ruta = 'Paradas/algorithm/data.txt'
+        ruta = 'Paradas/data.txt'
 
         with open(ruta, 'w') as archivo:
             # Escribir la primera línea
@@ -21,6 +22,10 @@ def vrppd(request):
                 archivo.write(linea)
         
         print(f"Archivo 'data.txt' creado con éxito.")
+
+        solve_problem(ruta)
+
+
         return JsonResponse({'message': 'Archivo "data.txt" creado con éxito.'}, status=200)
     
     except Exception as e:
@@ -49,7 +54,7 @@ def datos_detallepedidos():
                 ubicacion AS ue ON ue.idubicacion = le.idubicacion;
         ''')
         filas = cursor.fetchall()
-        print(filas)
+        #print(filas)
         return filas
 
 
